@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Comunidade - Receitadas</title>
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/comunidade.css" />
+</head>
+<body>
+
+  <header>
+    <div class="top-bar">
+      <div class="menu-icon"><span>☰</span> <span>MENU</span></div>
+      <div class="login-icon"><span>👤</span></div>
+    </div>
+    <div class="banner">
+      <img src="../imagens/banner.jpg" alt="Banner Receitadas" />
+    </div>
+    <div class="second-bar"></div>
+  </header>
+
+  <main class="comunidade-content">
+    <div class="comunidade-container">
+
+      <div class="comunidade-texto">
+        <h2>Bem-vindo à área de comentários da comunidade!</h2>
+        <p>
+          Aqui é o espaço ideal para você interagir com outros apaixonados 
+          por culinária. Compartilhe suas dicas, variações das 
+          receitas, sugestões de ingredientes, tempos de preparo ou 
+          métodos de cozimento que funcionaram para você.
+        </p>
+        <p>
+          Tem um truque especial para deixar o prato ainda mais saboroso? 
+          Encontrou uma substituição interessante? Conte pra gente!
+        </p>
+        <p>
+          Lembre-se de manter o respeito e o bom senso nos comentários — essa 
+          troca de experiências torna nosso site ainda mais rico e saboroso.
+        </p>
+        <p>Bom apetite e boas conversas! 🍽️</p>
+      </div>
+
+      <!-- Comentários -->
+      <section class="comentarios">
+        <h3>Comentários</h3>
+
+        <form id="form-comentario">
+          <input type="text" id="nome" placeholder="Seu nome" required />
+          <textarea id="comentario-texto" placeholder="Digite seu comentário..." required></textarea>
+          <button type="submit">Comentar</button>
+        </form>
+
+        <!-- Caixa branca dos comentários -->
+        <div id="lista-comentarios"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-section sobre">
+      <a href="../sites/sobre.html">sobre</a><br>
+      <a href="../index.html">home</a>
+    </div>
+
+    <div class="footer-section logo">
+      <img src="../imagens/logo.png.png" alt="Logo Receitadas">
+    </div>
+
+    <div class="footer-section contato">
+      <p>Fale conosco<br>0800.041.54560<br>41 993245-5458</p>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>

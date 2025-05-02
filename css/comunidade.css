@@ -1,0 +1,110 @@
+main.comunidade-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.comunidade-content {
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.comunidade-container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #1f1d1d;
+  border-radius: 10px;
+  flex: 1;
+}
+
+/* Bloco de texto da comunidade */
+.comunidade-texto {
+  flex: 1;
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 
+    -10px 0 10px rgba(247, 47, 47, 0.733),
+     0 10px 10px rgba(247, 47, 47, 0.733);
+  margin-bottom: 20px;
+  border: 1px solid red;
+  font-size: 1.1rem;
+  padding-left: 20px;
+  padding-right: 20px;
+  line-height: 1.6;
+  color: #000000;
+}
+
+.comunidade-texto h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fd0000;
+}
+
+/* Área de comentários */
+.comentarios {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  color: #ffffff;
+}
+
+.comentarios h3 {
+  margin-bottom: 15px;
+  color: #fd0000;
+}
+
+.comentarios textarea {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.comentarios button {
+  padding: 10px 20px;
+  background-color: #800000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.comentarios button:hover {
+  background-color: #a00000;
+}
+
+/* Caixa branca onde os comentários aparecem */
+#lista-comentarios {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  min-height: 150px;
+}
+
+/* Estilo de cada comentário individual */
+.comentario {
+  background-color: #f2f2f2;
+  color: #000;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+#form-comentario input[type="text"] {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+}

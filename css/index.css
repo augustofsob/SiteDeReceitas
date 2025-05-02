@@ -1,0 +1,99 @@
+
+.content {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #1f1d1d;
+  border-radius: 10px;
+  flex: 1;
+}
+
+.card {
+  display: flex;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgb(219, 210, 210);
+  margin-bottom: 20px;
+  border: 1px solid red;
+  box-shadow:   
+  -10px 0 10px rgba(247, 47, 47, 0.733),
+   0 10px 10px rgba(247, 47, 47, 0.733); 
+}
+
+.card-image img {
+  width: 250px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-info {
+  padding: 20px;
+  flex: 1;
+  position: relative;
+  font-size: 15px;
+}
+
+.card-info p {
+  margin-bottom: 10px;
+}
+
+.card-info ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.expand-btn {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background-color: #800000;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.expand-btn:hover {
+  transform: scale(1.1);
+}
+
+.detalhes {
+  display: none;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 120px;
+  background-color: #fdfdfd;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid red;
+  box-shadow:   
+  -10px 0 10px rgba(247, 47, 47, 0.733),
+   0 10px 10px rgba(247, 47, 47, 0.733); 
+   margin-bottom: 30px;
+}
+
+.detalhes.ativo {
+  display: flex;
+}
+
+.ingredientes, .preparo {
+  width: 48%;
+}
+
+.ingredientes ul, .preparo ol {
+  padding-left: 20px;
+  margin-top: 0;
+}
+
+.preparo {
+  font-size: 15px;
+}
+
+
+/* 1:53:13 

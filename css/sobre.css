@@ -1,0 +1,48 @@
+main.sobre-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  
+  .sobre-content {
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .sobre-container {
+    display: flex;
+    gap: 40px;
+    max-width: 1200px;
+    width: 100%;
+    align-items: center; 
+  }
+  
+  .sobre-fotos {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .sobre-fotos img {
+    width: 500px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgb(255, 255, 255);
+  }
+  
+  .sobre-texto {
+    flex: 1;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ffffff;
+  }
+  
+  .sobre-texto h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #fd0000; 
+  }
+  
