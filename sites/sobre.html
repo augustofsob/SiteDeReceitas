@@ -7,18 +7,42 @@
   <link rel="stylesheet" href="../css/global.css" />
   <link rel="stylesheet" href="../css/sobre.css" />
 </head>
-<body>
 
-  <header>
-    <div class="top-bar">
-      <div class="menu-icon"><span>☰</span> <span>MENU</span></div>
-      <div class="login-icon"><span>👤</span></div>
+<header>
+  <div class="top-bar">
+    <div class="menu-icon"><span>☰</span><span>MENU</span></div>
+    <div class="login-icon" id="login-icon">
+      <span>👤</span>
+      <span id="user-name-display"></span>
     </div>
-    <div class="banner">
-      <img src="../imagens/banner.jpg" alt="Banner Receitadas" />
+  </div>
+  <div class="banner">
+    <img src="../imagens/banner.jpg" alt="Banner Receitadas" />
+  </div>
+  <div class="second-bar"></div>
+</header>
+
+<!-- Modal de login -->
+<div id="login-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="close-modal">&times;</span>
+    <div id="login-form">
+      <h2>Login</h2>
+      <input type="text" id="username" placeholder="Nome de usuário" required />
+      <input type="password" id="password" placeholder="Senha" required />
+      <button id="login-btn">Entrar</button>
+      <p style="text-align: center;">
+        Não sou cadastrado? <a href="login/cadastro.html">Clique aqui</a>
+      </p>
     </div>
-    <div class="second-bar"></div>
-  </header>
+    <div id="logout-section" style="display:none; text-align:center;">
+      <p>Você está logado como <strong id="logged-user"></strong></p>
+      <button onclick="logout()">Sair</button>
+    </div>
+  </div>
+</div>
+
+<body>
 
   <main class="sobre-content">
     <div class="sobre-container">
@@ -65,6 +89,30 @@
       <p>Fale conosco<br>0800.041.54560<br>41 993245-5458</p>
     </div>
   </footer>
+
+  <div id="login-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="close-modal">&times;</span>
+  
+      <div id="login-form">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Nome de usuário" required />
+        <input type="password" id="password" placeholder="Senha" required />
+        <button id="login-btn">Entrar</button>
+        <p style="text-align: center; margin-top: 10px;">
+          Não sou cadastrado? <a href="login/cadastro.html">Clique aqui</a>
+        </p>
+      </div>
+  
+      <div id="logged-info" style="display: none; text-align: center;">
+        <p id="mensagem-usuario"></p>
+        <button onclick="logout()">Sair</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/script.js"></script>
+
 
 </body>
 </html>

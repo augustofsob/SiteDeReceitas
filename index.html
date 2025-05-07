@@ -7,140 +7,157 @@
   <link rel="stylesheet" href="css/index.css" />
   <link rel="stylesheet" href="css/global.css" />
 </head>
+
+
+<header>
+  <div class="top-bar">
+    <div class="menu-icon"><span>☰</span><span>MENU</span></div>
+    <div class="login-icon" id="login-icon">
+      <div class="cart-icon" id="cart-icon" onclick="abrirCarrinho(event)">
+        <span>🛒</span>
+        <span id="cart-count">(0)</span>
+      </div>
+      <span>👤</span>
+      <span id="user-name-display"></span>
+    </div>
+  </div>
+  <div class="banner">
+    <img src="imagens/banner.jpg" alt="Banner Receitadas" />
+  </div>
+  <div class="second-bar"></div>
+</header>
+
+<!-- Modal do carrinho -->
+<div id="cart-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="fecharCarrinho()">&times;</span>
+    <h2>Carrinho de Compras</h2>
+    <ul id="lista-carrinho"></ul>
+    <p><strong>Total:</strong> R$ <span id="total-carrinho">0.00</span></p>
+    <button onclick="finalizarCompra()">Finalizar Compra</button>
+  </div>
+</div>
+
+<!-- Modal de login -->
+<div id="login-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="close-modal">&times;</span>
+    <div id="login-form">
+      <h2>Login</h2>
+      <input type="text" id="username" placeholder="Nome de usuário" required />
+      <input type="password" id="password" placeholder="Senha" required />
+      <button id="login-btn">Entrar</button>
+      <p style="text-align: center;">
+        Não sou cadastrado? <a href="login/cadastro.html">Clique aqui</a>
+      </p>
+    </div>
+    <div id="logout-section" style="display:none; text-align:center;">
+      <p>Você está logado como <strong id="logged-user"></strong></p>
+      <button onclick="logout()">Sair</button>
+    </div>
+  </div>
+</div>
+
 <body>
-
-  <header>
-    <div class="top-bar">
-      <div class="menu-icon"><span>☰</span> <span>MENU</span></div>
-      <div class="login-icon"><span>👤</span></div>
-    </div>
-    <div class="banner">
-      <img src="imagens/banner.jpg" alt="Banner Receitadas" />
-    </div>
-    <div class="second-bar"></div>
-  </header>
-
   <main class="content">
 
-    <!-- CARD 1 -->
-    <article class="card">
-      <div class="card-image">
-        <img src="imagens/hamburguer.jpg" alt="Hambúrguer Artesanal" />
-      </div>
-      <div class="card-info">
-        <p>
-          🍔 <strong>Hambúrguer Artesanal</strong><br>
-          Criado no século XIX, o hambúrguer é um clássico irresistível!<br>
-          Seja para preparar em casa com nossas receitas testadas ou pedir direto no seu portão, o hambúrguer perfeito começa aqui.
-        </p>
-        <button class="expand-btn" onclick="toggleDetalhes('detalhesReceita1')">⬇</button>
-      </div>
-    </article>
-    <section class="detalhes" id="detalhesReceita1">
-      <div class="ingredientes">
-        <h3>🧂 Ingredientes</h3>
-        <p><strong>Cebola caramelizada (rende 3 hambúrgueres)</strong></p>
-        <ul>
-          <li>200 g de cebola</li>
-          <li>3 g de sal</li>
-          <li>10 g de óleo de canola</li>
-          <li>10 g de manteiga</li>
-          <li>Raspas de limão siciliano</li>
-          <li>Pimenta-do-reino a gosto</li>
-          <li>1 copo americano de água</li>
-        </ul>
-        <p><strong>Lanche</strong></p>
-        <ul>
-          <li>140 g de carne moída (50% acém e 50% peito)</li>
-          <li>25 g de queijo mussarela</li>
-          <li>25 g de queijo cheddar</li>
-          <li>35 g de cebola caramelizada</li>
-          <li>20 g de fatias de bacon</li>
-          <li>30 g de maionese</li>
-          <li>1 pão de hambúrguer</li>
-          <li>Sal e pimenta a gosto</li>
-        </ul>
-      </div>
-      <div class="preparo">  
-        <ol>
-          <h3>👨‍🍳 Preparo</h3>
+  <!-- CARD 1 -->
+  <article class="card">
+    <div class="card-image">
+      <img src="imagens/hamburguer.jpg" alt="Hambúrguer Artesanal" />
+    </div>
+    <div class="card-info">
+      <p>
+        🍔 <strong>Hambúrguer Artesanal</strong><br>
+        Criado no século XIX, o hambúrguer é um clássico irresistível!<br>
+        Seja para preparar em casa com nossas receitas testadas ou pedir direto no seu portão, o hambúrguer perfeito começa aqui.
+      </p>
+      <button class="expand-btn" onclick="toggleDetalhes('detalhesReceita1')">⬇</button>
+    </div>
+  </article>
+  <section class="detalhes" id="detalhesReceita1">
+    <div class="ingredientes">
+      <h3>🧂 Ingredientes</h3>
+      <p><strong>Cebola caramelizada</strong></p>
+      <ul>
+        <li>200 g de cebola</li>
+        <li>3 g de sal</li>
+        <li>10 g de óleo de canola</li>
+        <li>10 g de manteiga</li>
+        <li>Raspas de limão siciliano</li>
+        <li>Pimenta-do-reino a gosto</li>
+        <li>1 copo americano de água</li>
+      </ul>
+      <p><strong>Lanche</strong></p>
+      <ul>
+        <li>140 g de carne moída (50% acém e 50% peito)</li>
+        <li>25 g de queijo mussarela</li>
+        <li>25 g de queijo cheddar</li>
+        <li>35 g de cebola caramelizada</li>
+        <li>20 g de fatias de bacon</li>
+        <li>30 g de maionese</li>
+        <li>1 pão de hambúrguer</li>
+        <li>Sal e pimenta a gosto</li>
+      </ul>
+    </div>
 
-          <h4>Preparo da Cebola 🧅</h4>
-          <li>Aqueça o óleo na frigideira.</li>
-          <li>Adicione a cebola fatiada.</li>
-          <li>Cozinhe em fogo médio até dourar.</li>
-          <li>Se necessário, adicione água aos poucos.</li>
-          <li>Desligue o fogo.</li>
-          <li>Adicione a manteiga e raspas de limão.</li>
-          <li>Misture bem.</li>
-          
-          <h4>Preparo da carne 🥩 </h4>
-          <li>Tempere a carne com sal e pimenta.</li>
-          <li>Grelhe na chapa quente por ~2min de cada lado.</li>
-          <li>Adicione os queijos sobre a carne.</li>
-          <li>Coloque uma tampa e abafe por 15 segundos.</li>
-          <li>Retire e deixe a carne descansar 3 minutos.</li>
-          <li>Frite o bacon.</li>
+    <!-- Controle de quantidade -->
+    <div class="detalhe-direita">
+      <div class="preco">R$ 25,00</div>
 
-          <h4>Preparo do pão 🍞 </h4>
-          <li>Corte e passe manteiga no pão.</li>
-          <li>Doure as duas metades na frigideira.</li>
-          <li>Monte com os ingredientes e sirva!</li>
-        </ol>
+      <div class="quantidade">
+        <button onclick="alterarQuantidade(this, -1)">-</button>
+        <span class="qtd" id="quantidade1">1</span>
+        <button onclick="alterarQuantidade(this, 1)">+</button>
       </div>
-    </section>
 
-    <!-- CARD 2 -->
-    <article class="card">
-      <div class="card-image">
-        <img src="imagens/maionese-de-batata-cenoura.webp" alt="Maionese com Batata e Cenoura" />
+      <!-- Botão de compra -->
+      <button class="btn-comprar" onclick="adicionarAoCarrinho('Hambúrguer Artesanal', document.getElementById('quantidade1').textContent)">🛒 Comprar</button>
+    </div>
+  </section>
+
+  <!-- CARD 2 -->
+  <article class="card">
+    <div class="card-image">
+      <img src="imagens/maionese-de-batata-cenoura.webp" alt="Maionese com Batata e Cenoura" />
+    </div>
+    <div class="card-info">
+      <p>
+        🥗 <strong>Maionese com Batata e Cenoura</strong><br>
+        Clássica, cremosa e cheia de sabor, essa maionese combina batata, cenoura e um toque cítrico. 
+        Perfeita para acompanhar churrascos, almoços em família ou lanches especiais! <br>
+      </p>
+      <button class="expand-btn" onclick="toggleDetalhes('detalhesReceita2')">⬇</button>
+    </div>
+  </article>
+  <section class="detalhes" id="detalhesReceita2">
+    <div class="ingredientes">
+      <h3>🧂 Ingredientes</h3>
+      <ul>
+        <li>2 batatas médias (cerca de 300 g)</li>
+        <li>1 cenoura média (cerca de 100 g)</li>
+        <li>3 colheres (sopa) de maionese (~60 g)</li>
+        <li>1 colher (chá) de mostarda (opcional)</li>
+        <li>1 colher (sopa) de azeite de oliva</li>
+        <li>Suco de ½ limão</li>
+        <li>Sal e pimenta-do-reino a gosto</li>
+        <li>Cheiro-verde picado (a gosto)</li>
+      </ul>
+    </div>
+    <div class="detalhe-direita">
+      <div class="preco">R$ 15,00</div>
+
+      <div class="quantidade">
+        <button onclick="alterarQuantidade(this, -1)">-</button>
+        <span class="qtd" id="quantidade2">1</span>
+        <button onclick="alterarQuantidade(this, 1)">+</button>
       </div>
-      <div class="card-info">
-        <p>
-          🥗 <strong>Maionese com Batata e Cenoura</strong><br>
-          Clássica, cremosa e cheia de sabor, essa maionese combina batata, cenoura e um toque cítrico. 
-          Perfeita para acompanhar churrascos, almoços em família ou lanches especiais! <br>
-        </p>
-        <button class="expand-btn" onclick="toggleDetalhes('detalhesReceita2')">⬇</button>
-      </div>
-    </article>
-    <section class="detalhes" id="detalhesReceita2">
-      <div class="ingredientes">
-        <h3>🧂 Ingredientes</h3>
-        <ul>
-          <li>2 batatas médias (cerca de 300 g)</li>
-          <li>1 cenoura média (cerca de 100 g)</li>
-          <li>3 colheres (sopa) de maionese (~60 g)</li>
-          <li>1 colher (chá) de mostarda (opcional)</li>
-          <li>1 colher (sopa) de azeite de oliva</li>
-          <li>Suco de ½ limão</li>
-          <li>Sal e pimenta-do-reino a gosto</li>
-          <li>Cheiro-verde picado (a gosto)</li>
-        </ul>
-      </div>
-      <div class="preparo">
-        <h3>👨‍🍳 Preparo</h3>
-        <ol>
 
-          <h4>Preparo dos legumes 🥔 </h4>
-          <li>Descasque e corte a batata e a cenoura em cubinhos.</li>
-          <li>Cozinhe em água com sal até ficarem macios (mas sem desmanchar).</li>
-          <li>Escorra bem e deixe esfriar.</li>
+      <!-- Botão de compra -->
+      <button class="btn-comprar" onclick="adicionarAoCarrinho('Maionese com Batata e Cenoura', document.getElementById('quantidade2').textContent)">🛒 Comprar</button>
+    </div>
+  </section>
 
-          <h4>Preparo do molho 🥣 </h4>
-          <li>Em um recipiente, misture a maionese, a mostarda, o azeite e o suco de limão.</li>
-          <li>Tempere com sal e pimenta a gosto.</li>
-          <li>Mexa até formar um creme homogêneo.</li>
-
-          <h4>Preparo final da Salada de Maionese 🥗</h4>
-          <li>Junte os legumes cozidos e frios ao molho.</li>
-          <li>Misture delicadamente até envolver bem.</li>
-          <li>Finalize com cheiro-verde picado.</li>
-          <li>Leve à geladeira por pelo menos 30 minutos antes de servir.</li>
-
-        </ol>
-      </div>
-    </section>
 
     <!-- CARD 3 -->
     <article class="card">
@@ -166,24 +183,17 @@
           <li>1 xícara de açúcar (calda)</li>
         </ul>
       </div>
-      <div class="preparo">
-        <h3>👨‍🍳 Preparo</h3>
-        <ol>
-          <h4>Preparo da calda 🍯</h4>
-          <li>Em uma panela, derreta o açúcar em fogo baixo até formar um caramelo dourado.</li>
-          <li>Despeje a calda em uma forma de pudim (com furo no meio), espalhando bem no fundo e nas laterais.</li>
-      
-          <h4>Preparo do pudim 🍮</h4>
-          <li>No liquidificador, bata o leite condensado, o leite e os ovos até ficar bem homogêneo.</li>
-          <li>Despeje a mistura na forma já caramelizada.</li>
-          <li>Cubra com papel-alumínio.</li>
-          <li>Leve ao forno preaquecido a 180 °C, em banho-maria, por cerca de 1h30, ou até firmar.</li>
-      
-          <h4>Finalização ❄️</h4>
-          <li>Retire do forno e deixe esfriar completamente.</li>
-          <li>Leve à geladeira por no mínimo 4 horas antes de desenformar.</li>
-          <li>Desenforme com cuidado e sirva gelado.</li>
-        </ol>
+      <div class="detalhe-direita">
+        <div class="preco">R$ 15,00</div>
+  
+        <div class="quantidade">
+          <button onclick="alterarQuantidade(this, -1)">-</button>
+          <span class="qtd" id="quantidade3">1</span>
+          <button onclick="alterarQuantidade(this, 1)">+</button>
+        </div>
+  
+        <!-- Botão de compra -->
+        <button class="btn-comprar" onclick="adicionarAoCarrinho('Pudim de Leite', document.getElementById('quantidade3').textContent)">🛒 Comprar</button>
       </div>
     </section>
 
@@ -217,30 +227,24 @@
           <li>Cheiro-verde picado para finalizar (opcional)</li>
         </ul>
       </div>
-      <div class="preparo">
-        <h3>👨‍🍳 Preparo</h3>
-        <ol>
-          <h4>Refogando o frango 🍗</h4>
-          <li>Em uma panela, aqueça o óleo e doure a cebola e o alho.</li>
-          <li>Adicione o frango em cubos e refogue até dourar e ficar bem cozido.</li>
-          <li>Tempere com sal e pimenta a gosto.</li>
-      
-          <h4>Preparando o molho 🍅</h4>
-          <li>Junte o ketchup, a mostarda e misture bem.</li>
-          <li>Adicione o champignon (se for usar) e deixe cozinhar por 2 minutinhos.</li>
-          <li>Desligue o fogo e acrescente o creme de leite, mexendo até incorporar.</li>
-      
-          <h4>Finalização 🍽️</h4>
-          <li>Se quiser, finalize com cheiro-verde picado.</li>
-          <li>Sirva com arroz branco e batata palha.</li>
-        </ol>
+      <div class="detalhe-direita">
+        <div class="preco">R$ 15,00</div>
+  
+        <div class="quantidade">
+          <button onclick="alterarQuantidade(this, -1)">-</button>
+          <span class="qtd" id="quantidade4">1</span>
+          <button onclick="alterarQuantidade(this, 1)">+</button>
+        </div>
+  
+        <!-- Botão de compra -->
+        <button class="btn-comprar" onclick="adicionarAoCarrinho('Strogonoff de frango', document.getElementById('quantidade4').textContent)">🛒 Comprar</button>
       </div>
     </section>
 
         <!-- CARD 5 -->
         <article class="card">
           <div class="card-image">
-            <img src="imagens/milk-shake-de-chocolate-com-ovomaltine.webp" alt="milk shake de chocolate" />
+            <img src="imagens/milk-shake-de-chocolate-com-ovomaltine.webp" alt="Milk shake de chocolate" />
           </div>
           <div class="card-info">
             <p>
@@ -265,19 +269,17 @@
               <li>Raspas de chocolate ou granulado (opcional)</li>
             </ul>
           </div>
-          <div class="preparo">
-            <h3>👨‍🍳 Preparo</h3>
-            <ol>
-              <h4>Preparo do milk-shake 🥤</h4>
-              <li>Coloque no liquidificador o sorvete, o leite e o achocolatado (ou calda de chocolate).</li>
-              <li>Bata até ficar bem cremoso e homogêneo.</li>
-          
-              <h4>Montagem e finalização 🍫</h4>
-              <li>Se quiser, decore o copo com calda de chocolate antes de servir.</li>
-              <li>Despeje o milk-shake no copo.</li>
-              <li>Finalize com chantilly e raspas de chocolate ou granulado, se desejar.</li>
-              <li>Sirva imediatamente com um canudo largo.</li>
-            </ol>
+          <div class="detalhe-direita">
+            <div class="preco">R$ 18,00</div>
+      
+            <div class="quantidade">
+              <button onclick="alterarQuantidade(this, -1)">-</button>
+              <span class="qtd" id="quantidade5">1</span>
+              <button onclick="alterarQuantidade(this, 1)">+</button>
+            </div>
+      
+            <!-- Botão de compra -->
+            <button class="btn-comprar" onclick="adicionarAoCarrinho('Milk shake de chocolate', document.getElementById('quantidade5').textContent)">🛒 Comprar</button>
           </div>
         </section>
 
@@ -315,26 +317,17 @@
               <li>Salsinha e cebolinha picadas para finalizar</li>
             </ul>
           </div>
-          <div class="preparo">
-            <h3>👨‍🍳 Preparo</h3>
-            <ol>
-              <h4>Refogando a carne 🍖</h4>
-              <li>Em uma panela de pressão, aqueça o óleo e refogue a cebola e o alho até dourar.</li>
-              <li>Adicione a carne e frite até dourar por todos os lados.</li>
-              <li>Tempere com sal e pimenta a gosto.</li>
-              <li>Acrescente o tomate picado e mexa bem.</li>
-          
-              <h4>Adicionando os legumes 🥕🥔</h4>
-              <li>Coloque as batatas, a cenoura e a mandioquinha (se estiver usando).</li>
-              <li>Adicione a água quente até cobrir os ingredientes.</li>
-              <li>Feche a panela e cozinhe por cerca de 20 a 25 minutos após pegar pressão.</li>
-          
-              <h4>Finalização 🍲</h4>
-              <li>Desligue o fogo, espere a pressão sair e abra a panela com cuidado.</li>
-              <li>Ajuste o sal se necessário e deixe cozinhar destampado por mais alguns minutos se quiser engrossar o caldo.</li>
-              <li>Finalize com salsinha e cebolinha picadas.</li>
-              <li>Sirva bem quente com pão ou torradas.</li>
-            </ol>
+          <div class="detalhe-direita">
+            <div class="preco">R$ 20,00</div>
+      
+            <div class="quantidade">
+              <button onclick="alterarQuantidade(this, -1)">-</button>
+              <span class="qtd" id="quantidade6">1</span>
+              <button onclick="alterarQuantidade(this, 1)">+</button>
+            </div>
+      
+            <!-- Botão de compra -->
+            <button class="btn-comprar" onclick="adicionarAoCarrinho('Sopa de Carne e Legumes', document.getElementById('quantidade6').textContent)">🛒 Comprar</button>
           </div>
         </section>
 
@@ -366,20 +359,17 @@
             <li>Chocolate granulado ou raspas para decorar (opcional)</li>
           </ul>
         </div>
-        <div class="preparo">
-          <h3>👨‍🍳 Preparo</h3>
-          <ol>
-            <h4>Preparo do brigadeiro 🍫</h4>
-            <li>Em uma panela, coloque o leite condensado, a manteiga e o chocolate em pó.</li>
-            <li>Misture bem antes de levar ao fogo para dissolver tudo.</li>
-            <li>Leve ao fogo baixo, mexendo sem parar, até engrossar e desgrudar levemente do fundo da panela (cerca de 8 a 10 minutos).</li>
-        
-            <h4>Finalização 🥄</h4>
-            <li>Desligue o fogo e transfira para potinhos individuais ou um recipiente maior.</li>
-            <li>Deixe amornar ou leve à geladeira se preferir geladinho.</li>
-            <li>Decore com granulado ou raspas de chocolate, se quiser.</li>
-            <li>Sirva com colher e aproveite!</li>
-          </ol>
+        <div class="detalhe-direita">
+          <div class="preco">R$ 8,00</div>
+    
+          <div class="quantidade">
+            <button onclick="alterarQuantidade(this, -1)">-</button>
+            <span class="qtd" id="quantidade7">1</span>
+            <button onclick="alterarQuantidade(this, 1)">+</button>
+          </div>
+    
+          <!-- Botão de compra -->
+          <button class="btn-comprar" onclick="adicionarAoCarrinho('Brigadeiro de colher', document.getElementById('quantidade7').textContent)">🛒 Comprar</button>
         </div>
       </section>
 
@@ -415,28 +405,17 @@
           <li>Fatias de bacon suficientes para cobrir o rocambole</li>
         </ul>
       </div>
-      <div class="preparo">
-        <h3>👨‍🍳 Preparo</h3>
-        <ol>
-          <h4>Preparo da carne 🥩</h4>
-          <li>Em uma tigela, misture a carne moída, o ovo, a farinha de rosca, a cebola, o alho, sal, pimenta e cheiro-verde.</li>
-          <li>Misture bem até formar uma massa uniforme.</li>
-      
-          <h4>Montagem do rocambole 🧀🥓</h4>
-          <li>Sobre um pedaço de papel alumínio, abra a carne formando um retângulo.</li>
-          <li>Distribua o presunto e a muçarela sobre a carne, deixando uma borda livre nas laterais.</li>
-          <li>Enrole com cuidado, formando um rocambole (use o papel alumínio para ajudar).</li>
-          <li>Coloque as fatias de bacon por cima, cobrindo todo o rocambole.</li>
-      
-          <h4>Assando 🔥</h4>
-          <li>Transfira o rocambole (com o papel alumínio por baixo) para uma assadeira.</li>
-          <li>Leve ao forno preaquecido a 200 °C por cerca de 40 minutos.</li>
-          <li>Se quiser, nos últimos 10 minutos, ligue o grill ou retire o alumínio para dourar o bacon.</li>
-      
-          <h4>Finalização 🍽️</h4>
-          <li>Retire do forno, deixe descansar por 5 minutos e fatie para servir.</li>
-          <li>Combina super bem com arroz branco, purê de batatas ou salada verde.</li>
-        </ol>
+      <div class="detalhe-direita">
+        <div class="preco">R$ 40,00</div>
+  
+        <div class="quantidade">
+          <button onclick="alterarQuantidade(this, -1)">-</button>
+          <span class="qtd" id="quantidade8">1</span>
+          <button onclick="alterarQuantidade(this, 1)">+</button>
+        </div>
+  
+        <!-- Botão de compra -->
+        <button class="btn-comprar" onclick="adicionarAoCarrinho('Rocambole de Carne Moída com Banco', document.getElementById('quantidade8').textContent)">🛒 Comprar</button>
       </div>
     </section>
 
@@ -467,23 +446,17 @@
               <li>2 colheres (sopa) de açúcar (opcional, para a calda)</li>
             </ul>
           </div>
-          <div class="preparo">
-            <h3>👨‍🍳 Preparo</h3>
-            <ol>
-              <h4>Preparo da mousse 🍮</h4>
-              <li>No liquidificador, coloque o leite condensado, o creme de leite e o suco de maracujá.</li>
-              <li>Bata por 2 a 3 minutos até obter um creme bem aerado e homogêneo.</li>
-              <li>Distribua em potinhos ou em um recipiente único.</li>
-              <li>Leve à geladeira por pelo menos 3 horas ou até firmar.</li>
-          
-              <h4>Calda (opcional) 🍊</h4>
-              <li>Em uma panela, leve ao fogo a polpa do maracujá com o açúcar.</li>
-              <li>Cozinhe por cerca de 5 minutos até formar uma calda leve.</li>
-              <li>Deixe esfriar e despeje sobre a mousse na hora de servir.</li>
-          
-              <h4>Finalização ❄️</h4>
-              <li>Sirva gelado. Fica ainda melhor no dia seguinte!</li>
-            </ol>
+          <div class="detalhe-direita">
+            <div class="preco">R$ 12,00</div>
+      
+            <div class="quantidade">
+              <button onclick="alterarQuantidade(this, -1)">-</button>
+              <span class="qtd" id="quantidade9">1</span>
+              <button onclick="alterarQuantidade(this, 1)">+</button>
+            </div>
+      
+            <!-- Botão de compra -->
+            <button class="btn-comprar" onclick="adicionarAoCarrinho('Mousse de Maracujá', document.getElementById('quantidade9').textContent)">🛒 Comprar</button>
           </div>
         </section>
 
@@ -524,28 +497,19 @@
             </ul>
           </div>
           <div class="preparo">
-            <h3>👨‍🍳 Preparo</h3>
-            <ol>
-
-              <h4>Massa do bolo 🥕</h4>
-              <li>No liquidificador, bata as cenouras, os ovos e o óleo até obter um creme liso.</li>
-              <li>Em uma tigela, misture o açúcar, a farinha e o fermento.</li>
-              <li>Adicione o creme do liquidificador aos ingredientes secos e misture até ficar homogêneo.</li>
-              <li>Despeje a massa em uma forma untada e enfarinhada.</li>
-              <li>Leve ao forno preaquecido a 180 °C por cerca de 40 minutos, ou até passar no teste do palito.</li>
-          
-              <h4>Preparo da cobertura 🍫</h4>
-              <li>Em uma panela, misture o achocolatado, a manteiga, o leite e o açúcar.</li>
-              <li>Leve ao fogo médio, mexendo até levantar fervura e engrossar levemente (uns 5 minutos).</li>
-          
-              <h4>Finalização 🍰</h4>
-              <li>Desenforme o bolo já morno ou frio.</li>
-              <li>Despeje a cobertura ainda quente por cima do bolo.</li>
-              <li>Espere esfriar (ou não 😋) e sirva!</li>
-
-            </ol>
-          </div>
-        </section>
+            <div class="detalhe-direita">
+              <div class="preco">R$ 10,00</div>
+        
+              <div class="quantidade">
+                <button onclick="alterarQuantidade(this, -1)">-</button>
+                <span class="qtd" id="quantidade10">1</span>
+                <button onclick="alterarQuantidade(this, 1)">+</button>
+              </div>
+        
+              <!-- Botão de compra -->
+              <button class="btn-comprar" onclick="adicionarAoCarrinho('Bolo de Cenoura com Cobertura de Chocolate', document.getElementById('quantidade10').textContent)">🛒 Comprar</button>
+            </div>
+          </section>
 
   </main>
 
@@ -573,7 +537,31 @@
       const detalhes = document.getElementById(id);
       detalhes.classList.toggle("ativo");
     }
+    
   </script>
+
+<div id="login-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="close-modal">&times;</span>
+
+    <div id="login-form">
+      <h2>Login</h2>
+      <input type="text" id="username" placeholder="Nome de usuário" required />
+      <input type="password" id="password" placeholder="Senha" required />
+      <button id="login-btn">Entrar</button>
+      <p style="text-align: center; margin-top: 10px;">
+        Não sou cadastrado? <a href="../sites/login.html">Clique aqui</a>
+      </p>
+    </div>
+
+    <div id="logged-info" style="display: none; text-align: center;">
+      <p id="mensagem-usuario"></p>
+      <button onclick="logout()">Sair</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
 
 </body>
 </html>

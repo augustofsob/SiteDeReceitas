@@ -1,87 +1,146 @@
 html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    background-color: #1f1d1d;
-    font-family: Arial, sans-serif;
-  }
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #1f1d1d;
+  font-family: Arial, sans-serif;
+}
 
 .top-bar {
-    background-color: #800000;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-  }
-  
-  .menu-icon, .login-icon {
-    display: flex;
-    align-items: center;
-  }
-  
-  .menu-icon span, .login-icon span {
-    margin-left: 8px;
-  }
-  
-  .banner {
-    width: 100%;
-    height: 300px;
-    overflow: hidden;
-  }
-  
-  .banner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .second-bar {
-    background-color: #800000;
-    height: 10px;
-    width: 100%;
-  }
+  background-color: #800000;
+  color: white;
+  display: flex;
+  justify-content: space-between; /* menu à esquerda, login à direita */
+  align-items: center;
+  padding: 10px 20px;
+  position: relative;
+  z-index: 10;
+}
 
+.menu-icon, .login-icon {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.menu-icon span, .login-icon span {
+  margin-left: 8px;
+}
+
+.banner {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.second-bar {
+  background-color: #800000;
+  height: 10px;
+  width: 100%;
+}
+
+/* ------ login ----- */
+
+#user-name-display {
+  margin-left: 8px;
+  font-weight: bold;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 30px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  position: relative;
+}
+
+.modal-content input {
+  width: 90%;
+  padding: 8px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.modal-content button {
+  background-color: #800000;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.modal-content button:hover {
+  background-color: #a00000;
+}
+
+.close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
 .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #800000;
-    color: white;
-    padding: 20px 40px;
-   
-  }
-  
-  .footer-section {
-  
-    text-align: center;
-  }
-  
-  .footer-section.sobre {
-    text-align: left;
-  }
-  
-  .footer-section.comunidade {
-    text-align: left;
-  }
-  
-  .footer-section.contato {
-    text-align: right;
-  }
-  
-  .footer-section a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .footer-section a:hover {
-    text-decoration: underline;
-  }
-  
-  .footer-section.logo img {
-    height: 112px;
-    max-width: 100%;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #800000;
+  color: white;
+  padding: 20px 40px;
+}
+
+.footer-section {
+  text-align: center;
+}
+
+.footer-section.sobre {
+  text-align: left;
+}
+
+.footer-section.comunidade {
+  text-align: left;
+}
+
+.footer-section.contato {
+  text-align: right;
+}
+
+.footer-section a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+}
+
+.footer-section.logo img {
+  height: 112px;
+  max-width: 100%;
+}
